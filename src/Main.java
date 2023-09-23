@@ -1,11 +1,11 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         // stackImpl();
         //  queueImpl();
+        //  priorityQueueImpl();
+        //  linkedListImpl();
     }
 
     public static void stackImpl() {
@@ -42,5 +42,52 @@ public class Main {
         //  dequeue an element
         queue.poll();
         System.out.println(queue);
+    }
+
+    public static void priorityQueueImpl() {
+        //  FIFO but with the order of highest priority to lower priority
+        Queue<Double> priorQueue = new PriorityQueue<>();
+        priorQueue.offer(5.2);
+        priorQueue.offer(4.7);
+        priorQueue.offer(6.8);
+        priorQueue.offer(2.0);
+
+        while (!priorQueue.isEmpty()) {
+            System.out.print(priorQueue);
+            System.out.println("---Take: " + priorQueue.poll());
+        }
+    }
+
+    public static void linkedListImpl() {
+        LinkedList<String> linkedList = new LinkedList<>();
+
+        //  treat like stack
+        //linkedList.push("A");
+        //linkedList.push("B");
+        //linkedList.push("C");
+        //linkedList.push("D");
+        //linkedList.push("F");
+
+        //  treat like queue
+        linkedList.offer("A");
+        linkedList.offer("B");
+        linkedList.offer("C");
+        linkedList.offer("D");
+        linkedList.offer("F");
+
+        //  add an element
+        linkedList.add(4, "E");
+        //  remove an element
+        String removed = linkedList.remove(4);
+        //  add element to the head
+        linkedList.addFirst("0");
+        //  add element to the tail
+        linkedList.addLast("G");
+        //  remove head element
+        linkedList.removeFirst();
+        //  remove tail element
+        linkedList.removeLast();
+
+        System.out.println(linkedList);
     }
 }
